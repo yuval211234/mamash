@@ -37,8 +37,11 @@ const SoldierSelection = () => {
     }, [])
 
     const onSelect = (soldier) => () => {
-        setCurrentSoldier(soldier);
-        setIsCheck(true);
+        if (!soldier.isHere) {
+            setCurrentSoldier(soldier);
+            setIsCheck(true);
+        }
+
     }
 
     const onDisagree = () => {
@@ -79,7 +82,7 @@ const SoldierSelection = () => {
                         } : {
                                 backgroundColor: '#9e9e9e',
                                 color: theme.palette.secondary.main
-                            }} 
+                            }}
                             onClick={onSelect(soldier)}>
                             {soldier.name}
                         </Button>
