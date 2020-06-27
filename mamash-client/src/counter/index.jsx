@@ -6,11 +6,11 @@ const teamSoldierCounter = (soldiers) => {
     return soldiers.filter(soldier => soldier.isHere == true).length;
 }
 
-const Counter = (props) => {
+const Counter = ({soldierList}) => {
     return (
         <div>
             <Typography>
-            {teamSoldierCounter(props.soldierList)} / {props.soldierList.length}
+            {teamSoldierCounter(soldierList)} / {soldierList.length}
             </Typography>
         </div>
     );
