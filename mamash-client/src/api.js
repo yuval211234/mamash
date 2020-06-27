@@ -1,4 +1,4 @@
-const serverUrl = 'http://localhost';
+const serverUrl = 'http://18.223.131.250';
 
 const getAllPlugot = () => {
     return [{

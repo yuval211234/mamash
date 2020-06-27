@@ -46,6 +46,10 @@ function App({ history }) {
     setTheme(themeToUpdate);
   });
 
+  const onAppBarClick = () => {
+    history.push(`/`);
+  }
+
   return (
       <ThemeProvider theme={theme}>
         <div className={classes.background}>
@@ -57,13 +61,13 @@ function App({ history }) {
             position: 'relative',
             height: '80px'
           }}>
-            <Button>
-              <Link to="/" style={{
+            <Button onClick={onAppBarClick}>
+              <div style={{
                 fontSize: '20px',
                 color: theme.palette.secondary.main,
                 width: 'fit-content',
                 textDecoration: 'none',
-              }}>{'מערכת בדיקת נוכחות'}</Link>
+              }}>{'מערכת בדיקת נוכחות'}</div>
             </Button>
           </AppBar>
           <RoleSelection setTheme={setTheme} />
