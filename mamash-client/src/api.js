@@ -1,8 +1,8 @@
-const serverUrl = 'http://18.223.131.250';
+const serverUrl = 'http://localhost';
 
 const getAllPlugot = () => {
     return [{
-        id: '123',
+        id: 'בנטל',
         name: 'בנטל'
     }];
 }
@@ -33,9 +33,20 @@ const getAllSoldiersInTeam = async (teamId) => {
     return soldiers;
 }
 
-const markSoldier = async (soldierId) => {
+const getAllSoldiers = async () => {
+    const soldiers = await (await fetch(`${serverUrl}/soldiers`)).json();
+    return soldiers;
+}
+
+const markSoldier = async (soldierId, isHere) => {
     await fetch(`${serverUrl}/markSoldier/${soldierId}`, {
-        method: 'POST'
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            isHere
+        }),
     });
 }
 
@@ -50,5 +61,6 @@ export {
     getAllPlugot,
     getAllTeamsInPluga,
     markSoldier,
-    getAllSoldiersInTeam
+    getAllSoldiersInTeam,
+    getAllSoldiers
 }

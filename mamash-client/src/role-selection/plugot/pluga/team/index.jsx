@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import LineList from '../../../line-list';
-import { getAllSoldiersInTeam, markSoldier, resetTeamIsHere } from '../../../api';
+import LineList from '../../../../line-list';
+import { getAllSoldiersInTeam, markSoldier, resetTeamIsHere } from '../../../../api';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
@@ -9,6 +9,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { useParams } from 'react-router-dom';
 
 const STATES = {
     POPUP: 'POPUP',
@@ -40,21 +41,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Team = ({ team }) => {
+const Team = () => {
 
     const classes = useStyles();
-
+    const { teamId } = useParams();
     const [soldiers, setSoldiers] = useState([]);
     const [currentSoldier, setCurrentSoldier] = useState({});
     const [currentState, setCurrentState] = useState(STATES.SOLDIERS);
 
     useEffect(() => {
-        getAllSoldiersInTeam(team.id).then(soldiers => {
+        getAllSoldiersInTeam(teamId).then(soldiers => {
             setSoldiers(soldiers)
         });
 
         setInterval(() => {
-            getAllSoldiersInTeam(team.id).then(soldiers => {
+            getAllSoldiersInTeam(teamId).then(soldiers => {
                 setSoldiers(soldiers)
             });
         }, 5000);
@@ -71,8 +72,8 @@ const Team = ({ team }) => {
 
     const onAccept = () => {
         setCurrentState(STATES.SOLDIERS);
-        markSoldier(currentSoldier.id).then(() => {
-            getAllSoldiersInTeam(team.id).then(soldiers => {
+        markSoldier(currentSoldier.id, !currentSoldier.isHere).then(() => {
+            getAllSoldiersInTeam(teamId).then(soldiers => {
                 setSoldiers(soldiers)
             });
         });
@@ -84,8 +85,8 @@ const Team = ({ team }) => {
 
     const onReset = () => {
         setCurrentState(STATES.SOLDIERS);
-        resetTeamIsHere(team.id).then(() => {
-            getAllSoldiersInTeam(team.id).then(soldiers => {
+        resetTeamIsHere(teamId).then(() => {
+            getAllSoldiersInTeam(teamId).then(soldiers => {
                 setSoldiers(soldiers)
             });
         });
@@ -96,7 +97,7 @@ const Team = ({ team }) => {
             <div style={{ height: '100%', width: '80%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Typography className={classes.title}>
                     <div>
-                        {`${team.name}`}
+                        {`צוות ${teamId}`}
                     </div>
                 </Typography>
                 <LineList list={soldiers} onClick={onClick} />

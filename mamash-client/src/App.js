@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import PLUGOT from './plugot/index';
 import { AppBar, ThemeProvider } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
+import {
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+  withRouter
+} from "react-router-dom";
+import RoleSelection from './role-selection';
+import BlackTheme from './black-theme';
+import BlueTheme from './blue-theme';
+import GreenTheme from './green-theme';
+import { MuiThemeProvider } from 'material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    display: 'flex',
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.secondary.main,
-    padding: '20px',
-    position: 'relative',
-    height: '80px'
-  },
   background: {
     minHeight: '100vh',
     direction: 'rtl',
@@ -21,35 +25,51 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  },
-  title: {
-    fontSize: '20px',
-    color: theme.palette.secondary.main,
-    width: 'fit-content'
   }
 }));
 
-function App() {
+function App({ history }) {
 
   const classes = useStyles();
-  const [isHome, setIsHome] = useState(true);
 
-  const onAppBarClick = () => {
-    setIsHome(true);
-  }
+  const [theme, setTheme] = useState(window.location.pathname.includes('mamash')? BlueTheme: window.location.pathname.includes('normal')? GreenTheme : BlackTheme);
 
-  const setNotHome = () => {
-    setIsHome(false);
-  }
+  history.listen((location, action) => {
+    let themeToUpdate = BlackTheme;
+    if(location.pathname.includes('mamash')){
+      themeToUpdate = BlueTheme;
+    }
+    else if(location.pathname.includes('normal')){
+      themeToUpdate = GreenTheme;
+    }
+
+    setTheme(themeToUpdate);
+  });
 
   return (
-    <div className={classes.background}>
-      <AppBar className={classes.appBar}>
-        <Button className={classes.title} onClick={onAppBarClick}>{'מערכת בדיקת נוכחות'}</Button>
-      </AppBar>
-      <PLUGOT isHome={isHome} setNotHome={setNotHome}/>
-    </div>
+      <ThemeProvider theme={theme}>
+        <div className={classes.background}>
+          <AppBar style={{
+            display: 'flex',
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.secondary.main,
+            padding: '20px',
+            position: 'relative',
+            height: '80px'
+          }}>
+            <Button>
+              <Link to="/" style={{
+                fontSize: '20px',
+                color: theme.palette.secondary.main,
+                width: 'fit-content',
+                textDecoration: 'none',
+              }}>{'מערכת בדיקת נוכחות'}</Link>
+            </Button>
+          </AppBar>
+          <RoleSelection setTheme={setTheme} />
+        </div>
+      </ThemeProvider>
   );
 }
 
-export default App;
+export default withRouter(App);

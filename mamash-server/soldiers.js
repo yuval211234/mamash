@@ -92,25 +92,25 @@ let getSoldiers = () =>
             },
             {
                 id:'17',
-                name: 'שובל',
+                name: 'שובל אגמון',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'18',
-                name: 'טל',
+                name: 'טל אמיניזר',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'19',
-                name: 'טליה',
+                name: 'טליה גנוסר',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'20',
-                name: 'ליאור',
+                name: 'ליאור זכריה',
                 teamId: '5',
                 isHere: false
             },
@@ -122,55 +122,55 @@ let getSoldiers = () =>
             },
             {
                 id:'22',
-                name: 'מרוה',
+                name: 'מרוה קוראין',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'23',
-                name: 'גאיה',
+                name: 'גאיה הדרי',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'24',
-                name: 'רויאל',
+                name: 'רויאל כהן',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'25',
-                name: 'הדס',
+                name: 'הדס יהוד',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'26',
-                name: 'קוראל',
+                name: 'קוראל מרגי',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'27',
-                name: 'הילה',
+                name: 'הילה דודיאן',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'28',
-                name: 'עמית',
+                name: 'עמית שגיא',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'29',
-                name: 'נטע',
+                name: 'נטע אליאס',
                 teamId: '5',
                 isHere: false
             },
             {
                 id:'30',
-                name: 'אריאל',
+                name: 'אריאל שביב',
                 teamId: '5',
                 isHere: false
             },
@@ -182,175 +182,175 @@ let getSoldiers = () =>
             },
             {
                 id:'32',
-                name: 'יעל',
+                name: 'יעל אברם',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'33',
-                name: 'אור',
+                name: 'אור אייזנברג',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'34',
-                name: 'יוסי',
+                name: 'יוסי אסולין',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'35',
-                name: 'ולד',
+                name: 'ולד בוריסנקו',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'36',
-                name: 'קרן',
+                name: 'קרן גייכמן',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'37',
-                name: 'יהלי',
+                name: 'יהלי אשרי',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'38',
-                name: 'מעין',
+                name: 'מעין גרשלר',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'39',
-                name: 'אבי',
+                name: 'אבי ורד',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'40',
-                name: 'גל',
+                name: 'גל חורש',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'41',
-                name: 'תמר',
+                name: 'תמר כרמלי',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'42',
-                name: 'איל',
+                name: 'איל ויל',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'43',
-                name: 'יזהר',
+                name: 'יזהר אננייב',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'44',
-                name: 'מתן',
+                name: 'מתן שטראחמן',
                 teamId: '7',
                 isHere: false
             },
             {
                 id:'45',
-                name: 'נטע',
+                name: 'נטע דרור',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'46',
-                name: 'ליהי',
+                name: 'ליהי פז',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'47',
-                name: 'אילה',
+                name: 'אילה דהן',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'48',
-                name: 'גלי',
+                name: 'גלי גדות גמליאלי',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'49',
-                name: 'בר',
+                name: 'בר דודי',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'50',
-                name: 'גיל',
+                name: 'גיל גרשוביץ',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'51',
-                name: 'שירה',
+                name: 'שירה נחום',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'52',
-                name: 'שי',
+                name: 'שי מושיאשוילי',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'53',
-                name: 'סער',
+                name: 'סער כץ',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'54',
-                name: 'עינת',
+                name: 'עינת חמו',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'55',
-                name: 'רוני',
+                name: 'רוני לבן',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'56',
-                name: 'גל',
+                name: 'גל מוריה',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'57',
-                name: 'אביב',
+                name: 'אביב הלל',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'58',
-                name: 'דר',
+                name: 'דר פיינשטיין',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'59',
-                name: 'איתי',
+                name: 'איתי נוימן',
                 teamId: '8',
                 isHere: false
             },
             {
                 id:'60',
-                name: 'אביב',
+                name: 'אביב עזרא',
                 teamId: '8',
                 isHere: false
             },

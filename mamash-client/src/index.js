@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import theme from './theme';
-import { ThemeProvider } from '@material-ui/core';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
+  <Router>
   <React.StrictMode>
     <App />
   </React.StrictMode>
-  </ThemeProvider>,
+  </Router>,
   document.getElementById('root')
 );
 
