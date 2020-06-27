@@ -10,6 +10,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useParams } from 'react-router-dom';
+import Counter from '../../../../counter';
 
 const STATES = {
     POPUP: 'POPUP',
@@ -99,6 +100,7 @@ const Team = () => {
                     <div>
                         {`צוות ${teamId}`}
                     </div>
+                    <Counter soldierList={soldiers}/>
                 </Typography>
                 <LineList list={soldiers} onClick={onClick} />
                 <Button className={classes.button} onClick={onResetClick}>{'אתחול הרשימה'}</Button>
