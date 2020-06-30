@@ -60,4 +60,13 @@ app.post('/resetIsHere/:teamId', (req, res) => {
 }
 );
 
+app.post('/resetAllTeams', (req,res) => {
+    soldiers = soldiers.map(soldier => {
+        const newSoldier = soldier;
+        newSoldier.status = SOLDIER_STATUS.UNDEFINED;
+        return newSoldier;
+    });
+    res.send('success');
+});
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
