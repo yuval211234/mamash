@@ -11,6 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useParams } from 'react-router-dom';
+import Counter from '../../../../counter';
 import { SOLDIER_STATUS } from '../../../../global';
 import SoldierStatusAlert from './soldier-status-alert'
 
@@ -140,6 +141,7 @@ const Team = () => {
                     <div>
                         {`צוות ${teamId}`}
                     </div>
+                    <Counter soldierList={soldiers}/>
                 </Typography>
                 <LineList list={soldiersNameAndColor()} onClick={onSoldierClick} />
                 <Button className={classes.resetButton} onClick={onResetClick}>{'אתחול הרשימה'}</Button>
