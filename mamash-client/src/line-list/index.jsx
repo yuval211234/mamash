@@ -33,8 +33,8 @@ const LineList = ({ list, onClick }) => {
     return (
         <div className={classes.root}>
             {
-                list.map((item) =>
-                    <Line item={item} onClick={onClick} />
+                list.map(({item, color}) =>
+                    <Line item={item} color={color} onClick={onClick} />
                 )
             }
         </div>
