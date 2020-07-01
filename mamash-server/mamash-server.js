@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const { getSoldiers } = require('./soldiers')
 const path = require('path');
+const {SOLDIER_STATUS} = require('./globals');
 const app = express()
 const port = 80
 
@@ -28,11 +29,17 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/index.html'))
 });
 
-app.post('/markSoldier/:soldierId', (req, res) => {
+const changeSoldierStatusAndReason = (soldier, status, reason) => {
+    const newSoldier = soldier;
+    newSoldier.status = status;
+    newSoldier.reason = status === SOLDIER_STATUS.MISSING && reason ? reason : '';
+    return newSoldier;
+}
+
+app.post('/changeStatus/:soldierId', (req, res) => {
     soldiers = soldiers.map(soldier => {
         if (soldier.id === req.params.soldierId) {
-            let newSoldier = soldier;
-            newSoldier.isHere = req.body.isHere;
+            const newSoldier = changeSoldierStatusAndReason(soldier, req.body.soldierStatus, req.body.soldierReason);
             return newSoldier;
         }
         return soldier;
@@ -44,8 +51,7 @@ app.post('/markSoldier/:soldierId', (req, res) => {
 app.post('/resetIsHere/:teamId', (req, res) => {
     soldiers = soldiers.map(soldier => {
         if (soldier.teamId === req.params.teamId) {
-            let newSoldier = soldier;
-            newSoldier.isHere = false;
+            const newSoldier = changeSoldierStatusAndReason(soldier, req.body.soldierStatus, req.body.soldierReason);
             return newSoldier;
         }
         return soldier;

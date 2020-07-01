@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Line = ({ item, onClick }) => {
+const Line = ({ item, onClick, color }) => {
     const classes = useStyles();
 
     const onLineClick = () => {
@@ -37,7 +37,7 @@ const Line = ({ item, onClick }) => {
 
     return (
 
-        <Button className={classes.box} style={item.isHere? {} : {backgroundColor: '#9e9e9e'}} elevation={6} onClick={onLineClick}>
+        <Button className={classes.box} style={{backgroundColor: color}} elevation={6} onClick={onLineClick}>
             <Typography className={classes.title}>{item.name}</Typography>
         </Button>
 

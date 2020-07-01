@@ -10,6 +10,9 @@ export default createMuiTheme({
         },
         background: {
             main: '#0000000d'
+        },
+        warning: {
+            main: '#ff9800'
         }
     },
 });
