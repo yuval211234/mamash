@@ -6,8 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useHistory, Switch, Route, useRouteMatch } from 'react-router-dom';
 import { getAllSoldiers } from '../../api';
 import { TextField, Paper } from '@material-ui/core';
-import MazevaTitle from './mazeva-title';
+import MazevaTitle from '../../mazeva-title';
 import MazevaColumn from './mazeva-column';
+import { SOLDIER_STATUS } from '../../global';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -45,8 +46,8 @@ const Mazeva = () => {
         }, 5000);
     }, [])
 
-    const allPresentSoldiers = soldiers.filter(({ isHere }) => isHere);
-    const allNonPresentSoldiers = soldiers.filter(({ isHere }) => !isHere);
+    const allPresentSoldiers = soldiers.filter(({ status }) => status === SOLDIER_STATUS.HERE);
+    const allNonPresentSoldiers = soldiers.filter(({ status }) => status !== SOLDIER_STATUS.HERE);
 
     return (
         <>
@@ -66,7 +67,7 @@ const Mazeva = () => {
                             <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
                                 {allNonPresentSoldiers.map(soldier => (
                                     <Typography>
-                                        {soldier.name}
+                                        {`${soldier.name}-${soldier.reason? soldier.reason: 'ללא סיבה'}`}
                                     </Typography>
                                 ))}
                             </div>

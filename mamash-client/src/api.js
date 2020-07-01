@@ -38,14 +38,15 @@ const getAllSoldiers = async () => {
     return soldiers;
 }
 
-const markSoldier = async (soldierId, isHere) => {
-    await fetch(`${serverUrl}/markSoldier/${soldierId}`, {
+const changeSoldierStatus = async (soldierId, soldierStatus, soldierReason) => {
+    await fetch(`${serverUrl}/changeStatus/${soldierId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            isHere
+            soldierStatus,
+            soldierReason
         }),
     });
 }
@@ -60,7 +61,7 @@ export {
     resetTeamIsHere,
     getAllPlugot,
     getAllTeamsInPluga,
-    markSoldier,
+    changeSoldierStatus,
     getAllSoldiersInTeam,
     getAllSoldiers
 }

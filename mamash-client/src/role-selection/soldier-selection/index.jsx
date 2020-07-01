@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { getAllSoldiers, markSoldier } from '../../api';
+import { getAllSoldiers, changeSoldierStatus } from '../../api';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { TextField, Button, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import { SOLDIER_STATUS } from '../../global';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -37,7 +38,7 @@ const SoldierSelection = () => {
     }, [])
 
     const onSelect = (soldier) => () => {
-        if (!soldier.isHere) {
+        if (soldier.status !== SOLDIER_STATUS.HERE) {
             setCurrentSoldier(soldier);
             setIsCheck(true);
         }
@@ -50,7 +51,7 @@ const SoldierSelection = () => {
 
     const onAccept = () => {
         setIsCheck(false);
-        markSoldier(currentSoldier.id, true).then(() => {
+        changeSoldierStatus(currentSoldier.id, SOLDIER_STATUS.HERE).then(() => {
             getAllSoldiers().then(newSoldiers => {
                 setSoldiers(newSoldiers);
             });
@@ -76,7 +77,7 @@ const SoldierSelection = () => {
             <div>
                 {
                     soldiers.filter(soldier => search !== '' && soldier.name.includes(search)).map(soldier => (
-                        <Button className={classes.selection} style={soldier.isHere ? {
+                        <Button className={classes.selection} style={soldier.status === SOLDIER_STATUS.HERE ? {
                             backgroundColor: theme.palette.primary.main,
                             color: theme.palette.secondary.main
                         } : {
@@ -98,8 +99,7 @@ const SoldierSelection = () => {
                 <DialogTitle id="alert-dialog-title">{"רגע"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {currentSoldier.isHere ? `האם אתה בטוח שאתה רוצה לסמן ש${currentSoldier.name} הלך?`
-                            : `האם אתה בטוח שאתה רוצה לסמן ש${currentSoldier.name} כאן?`}
+                        {`האם אתה בטוח שאתה רוצה לסמן ש${currentSoldier.name} כאן?`}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

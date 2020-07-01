@@ -1,5 +1,7 @@
-let getSoldiers = () =>
-        [
+const {SOLDIER_STATUS} = require('./globals');
+
+let getSoldiers = () => {
+        const soldiers = [
             {
                 id:'1',
                 name: 'יובל פורמן אסא',
@@ -355,6 +357,14 @@ let getSoldiers = () =>
                 isHere: false
             },
         ]
+
+        return soldiers.map(soldier => {
+            soldier.status = SOLDIER_STATUS.UNDEFINED;
+            soldier.reason = '';
+
+            return soldier;
+        })
+    }
 
 module.exports = {
     getSoldiers
