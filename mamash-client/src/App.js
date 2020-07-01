@@ -12,10 +12,12 @@ import {
   withRouter
 } from "react-router-dom";
 import RoleSelection from './role-selection';
-import BlackTheme from './black-theme';
-import BlueTheme from './blue-theme';
-import GreenTheme from './green-theme';
+import BlackTheme from './themes/black-theme';
+import BlueTheme from './themes/blue-theme';
+import GreenTheme from './themes/green-theme';
+import PurpuleTheme from './themes/purple-theme';
 import { MuiThemeProvider } from 'material-ui/styles';
+import { ROLES_NAMES, ROLES } from './global';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -28,20 +30,31 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const roleToTheme = {
+  [ROLES_NAMES.NORMAL]: GreenTheme,
+  [ROLES_NAMES.MAMASH]: BlueTheme,
+  [ROLES_NAMES.SAMAP]: PurpuleTheme
+}
+
 function App({ history }) {
 
   const classes = useStyles();
 
-  const [theme, setTheme] = useState(window.location.pathname.includes('mamash')? BlueTheme: window.location.pathname.includes('normal')? GreenTheme : BlackTheme);
+  const getThemeByPathName = (pathName) => {
+    let theme = BlackTheme;
+    ROLES.forEach(role => {
+      if(pathName.includes(role.englishName)){
+        theme = roleToTheme[role.englishName];
+      }
+    });
+
+    return theme;
+  }
+
+  const [theme, setTheme] = useState(getThemeByPathName(window.location.pathname));
 
   history.listen((location, action) => {
-    let themeToUpdate = BlackTheme;
-    if(location.pathname.includes('mamash')){
-      themeToUpdate = BlueTheme;
-    }
-    else if(location.pathname.includes('normal')){
-      themeToUpdate = GreenTheme;
-    }
+    const themeToUpdate = getThemeByPathName(window.location.pathname);
 
     setTheme(themeToUpdate);
   });

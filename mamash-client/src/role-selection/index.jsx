@@ -5,11 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useHistory, Switch, Route, useRouteMatch, withRouter } from 'react-router-dom';
 import Plugot from './plugot/index';
 import SoldierSelection from './soldier-selection';
-
-const STATES = {
-    PLUGOT: 'PLUGOT',
-    PLUGA: 'PLUGA',
-};
+import { ROLES_NAMES, ROLES } from '../global';
+import Mazeva from './mazeva';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -32,13 +29,20 @@ const RoleSelection = ({ setTheme }) => {
 
     const [roles, setRoles] = useState([]);
 
-    const match = useRouteMatch();
+    const roleToComponentFunc = (roleEnglishName) => {
+        const rolesToComponent = {
+            [ROLES_NAMES.NORMAL]: <SoldierSelection />,
+            [ROLES_NAMES.MAMASH]: <Plugot />,
+            [ROLES_NAMES.SAMAP]: <Mazeva />
+        }
+        return rolesToComponent[roleEnglishName];
+    }
 
     useEffect(() => {
-        setRoles([{ name: 'צוער', englishName: 'normal' }, { name: 'ממש', englishName: 'mamash' }]);
+        setRoles(ROLES);
     }, [])
 
-    
+
 
     const onClick = (role) => {
         history.push(`/${role.englishName}`);
@@ -47,12 +51,11 @@ const RoleSelection = ({ setTheme }) => {
     return (
         <>
             <Switch>
-                <Route path={`/mamash`}>
-                    <Plugot />
-                </Route>
-                <Route path={`/normal`}>
-                    <SoldierSelection />
-                </Route>
+                {roles.map(role => (
+                    <Route path={`/${role.englishName}`}>
+                        {roleToComponentFunc(role.englishName)}
+                    </Route>
+                ))}
                 <Route path={`/`}>
                     <div style={{ height: '100%', width: '80%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Typography className={classes.title}>
