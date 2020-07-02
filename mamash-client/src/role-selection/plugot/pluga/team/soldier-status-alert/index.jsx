@@ -45,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         direction: 'rtl',
+    },
+    titleContainer: {
+        marginTop: '20px'
     }
 }));
 
@@ -64,7 +67,7 @@ const SoldierStatusAlert = ({ isOn, onClose, soldier, onMarkHereClick, onMarkMis
     }
 
     const onMissingClick = () => {
-        if(soldierReason === ''){
+        if (soldierReason === '') {
             setIsError(true)
         }
         else {
@@ -87,10 +90,12 @@ const SoldierStatusAlert = ({ isOn, onClose, soldier, onMarkHereClick, onMarkMis
                             <Button className={classes.hereButton} onClick={onMarkHereClick} >{'החייל כאן'} </Button>
                         </div>
                         <div className={classes.bottomContainer}>
-                            <MazevaTitle title={'חסר'} />
+                            <div className={classes.titleContainer}>
+                                <MazevaTitle title={'חסר'} />
+                            </div>
                             <TextField style={{ marginTop: '20px' }} onChange={onReasonChange} placeholder={'למה הוא חסר'} value={soldierReason} />
                             {isError ?
-                                <div style={{color: 'red'}}>
+                                <div style={{ color: 'red' }}>
                                     {'השדה של החסר חייב להכיל ערך'}
                                 </div> : null}
                             <Button className={classes.missingButton} onClick={onMissingClick}>{'החייל חסר'}</Button>
