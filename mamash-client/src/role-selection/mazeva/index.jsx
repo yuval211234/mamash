@@ -57,7 +57,7 @@ const Mazeva = () => {
                         {`סמ"פ`}
                     </div>
                 </Typography>
-                <div style={{ flex: '1', display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                         <MazevaColumn title={'מצ"ל'} string={soldiers.length} />
                         <MazevaColumn title={'מצ"נ'} string={allPresentSoldiers.length} />
