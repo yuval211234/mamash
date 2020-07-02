@@ -62,16 +62,6 @@ const Mazeva = () => {
                         <MazevaColumn title={'מצ"ל'} string={soldiers.length} />
                         <MazevaColumn title={'מצ"נ'} string={allPresentSoldiers.length} />
                         <MazevaColumn title={'חסרים'} string={allNonPresentSoldiers.length} />
-                        <div>
-                            <MazevaTitle title={'פירוט'} />
-                            <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
-                                {allNonPresentSoldiers.map(soldier => (
-                                    <Typography>
-                                        {`${soldier.name} - ${soldier.reason? soldier.reason: 'אין סיבה'}`}
-                                    </Typography>
-                                ))}
-                            </div>
-                        </div>
                     </div >
                     <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                         <MazevaTitle title={'תאריך'} />
@@ -81,6 +71,16 @@ const Mazeva = () => {
                         <MazevaTitle title={'מקום'} />
                         <TextField>
                         </TextField>
+                    </div>
+                </div>
+                <div>
+                    <MazevaTitle title={'פירוט'} />
+                    <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
+                        {allNonPresentSoldiers.map(soldier => (
+                            <Typography style={{}}>
+                                {`${soldier.name} - ${soldier.reason ? soldier.reason : 'אין סיבה'}`}
+                            </Typography>
+                        ))}
                     </div>
                 </div>
             </div>
