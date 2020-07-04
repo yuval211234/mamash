@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import BoxList from '../../box-list';
-import { getAllPlugot } from '../../api';
+import { getAllPlugot, resetAllTeams } from '../../api';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory, Switch, Route, useRouteMatch } from 'react-router-dom';
 import { getAllSoldiers } from '../../api';
-import { TextField, Paper } from '@material-ui/core';
+import { TextField, Paper, Button } from '@material-ui/core';
 import MazevaTitle from '../../mazeva-title';
 import MazevaColumn from './mazeva-column';
 import { SOLDIER_STATUS } from '../../global';
@@ -26,6 +26,17 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    button: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100px',
+        minWidth: '100%',
+        fontSize: '20px',
+        backgroundColor: '#ff5722',
+        color: 'white',
+        margin: '20px'
     }
 }));
 
@@ -48,6 +59,10 @@ const Mazeva = () => {
 
     const allPresentSoldiers = soldiers.filter(({ status }) => status === SOLDIER_STATUS.HERE);
     const allNonPresentSoldiers = soldiers.filter(({ status }) => status !== SOLDIER_STATUS.HERE);
+
+    const resetAllSoldiers = () => {
+        resetAllTeams();
+    }
 
     return (
         <>
@@ -82,6 +97,9 @@ const Mazeva = () => {
                             </Typography>
                         ))}
                     </div>
+                </div>
+                <div>
+                    <Button className={classes.button} onClick={resetAllSoldiers}>אתחל מצבה</Button>
                 </div>
             </div>
         </>

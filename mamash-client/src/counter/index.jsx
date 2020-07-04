@@ -11,7 +11,7 @@ const Counter = ({soldierList}) => {
     return (
         <div>
             <Typography>
-            {teamSoldierCounter(soldierList)} / {soldierList.length}
+            {soldierList.length} / { teamSoldierCounter(soldierList) }
             </Typography>
         </div>
     );

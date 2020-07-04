@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '50px',
     },
     selection: {
-        width: '100פס',
+        width: '100px',
         margin: '5px'
     }
 }));

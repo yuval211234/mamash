@@ -1,4 +1,5 @@
-const serverUrl = 'http://18.223.131.250';
+//const serverUrl = 'http://18.223.131.250';
+const serverUrl = 'http://localhost:80';
 
 const getAllPlugot = () => {
     return [{
@@ -57,11 +58,19 @@ const resetTeamIsHere = async (teamId) => {
     });
 }
 
+const resetAllTeams = async () => {
+    await fetch(`${serverUrl}/resetAllTeams`, {
+        method: 'POST'
+    });  
+}
+
+
 export {
     resetTeamIsHere,
     getAllPlugot,
     getAllTeamsInPluga,
     changeSoldierStatus,
     getAllSoldiersInTeam,
-    getAllSoldiers
+    getAllSoldiers,
+    resetAllTeams
 }
