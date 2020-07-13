@@ -9,6 +9,7 @@ import { TextField, Paper, Button } from '@material-ui/core';
 import MazevaTitle from '../../mazeva-title';
 import MazevaColumn from './mazeva-column';
 import { SOLDIER_STATUS } from '../../global';
+import AcceptDeclineAlert from '../../accept-decline-alert';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '20px',
         backgroundColor: '#ff5722',
         color: 'white',
-        margin: '20px'
+        marginTop: '20px'
     }
 }));
 
@@ -44,6 +45,7 @@ const Mazeva = () => {
 
     const [soldiers, setSoldiers] = useState([]);
     const classes = useStyles();
+    const [isResetOpen, setIsResetOpen] = useState(false);
 
     useEffect(() => {
         getAllSoldiers().then(newSoldiers => {
@@ -62,6 +64,15 @@ const Mazeva = () => {
 
     const resetAllSoldiers = () => {
         resetAllTeams();
+        setIsResetOpen(false);
+    }
+
+    const onClose = () => {
+        setIsResetOpen(false);
+    }
+
+    const onResetClick = () => {
+        setIsResetOpen(true);
     }
 
     return (
@@ -99,9 +110,15 @@ const Mazeva = () => {
                     </div>
                 </div>
                 <div>
-                    <Button className={classes.button} onClick={resetAllSoldiers}>אתחל מצבה</Button>
+                    <Button className={classes.button} onClick={onResetClick}>אתחל מצבה</Button>
                 </div>
             </div>
+            <AcceptDeclineAlert
+                open={isResetOpen}
+                onClose={onClose}
+                onAccept={resetAllSoldiers}
+                title={"רגע"}
+                message={`אתה בטוח שאתה רוצה לעשות אתחול?`} />
         </>
     );
 

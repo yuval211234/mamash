@@ -14,6 +14,7 @@ import { useParams } from 'react-router-dom';
 import Counter from '../../../../counter';
 import { SOLDIER_STATUS } from '../../../../global';
 import SoldierStatusAlert from './soldier-status-alert'
+import AcceptDeclineAlert from '../../../../accept-decline-alert';
 
 const STATES = {
     POPUP: 'POPUP',
@@ -141,7 +142,7 @@ const Team = () => {
                     <div>
                         {`צוות ${teamId}`}
                     </div>
-                    <Counter soldierList={soldiers}/>
+                    <Counter soldierList={soldiers} />
                 </Typography>
                 <LineList list={soldiersNameAndColor()} onClick={onSoldierClick} />
                 <Button className={classes.resetButton} onClick={onResetClick}>{'אתחול הרשימה'}</Button>
@@ -150,27 +151,11 @@ const Team = () => {
                 onClose={onClose} soldier={currentSoldier}
                 onMarkHereClick={markSoldierAsHere}
                 onMarkMissingClick={markSoldierAsMissing} />
-            <Dialog
+            <AcceptDeclineAlert onClose={onClose}
                 open={currentState === STATES.RESET}
-                onClose={onClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title">{"רגע"}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        {`אתה בטוח שאתה רוצה לעשות אתחול?`}
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={onClose} color="primary">
-                        לא
-          </Button>
-                    <Button onClick={onReset} color="primary" autoFocus>
-                        כן
-          </Button>
-                </DialogActions>
-            </Dialog>
+                onAccept={onReset}
+                title={"רגע"}
+                message={`אתה בטוח שאתה רוצה לעשות אתחול?`} />
         </>
     );
 }
