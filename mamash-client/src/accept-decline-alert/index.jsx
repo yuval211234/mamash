@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllSoldiersInTeam, changeSoldierStatus, resetTeamIsHere } from '../api';
+import { getAllSoldiersInTeam, changeSoldierStatus, resetTeamIsHere } from '../api/api';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, useTheme } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';

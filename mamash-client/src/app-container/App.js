@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AppBar, ThemeProvider } from '@material-ui/core';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
 import {
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
   withRouter
 } from "react-router-dom";
-import RoleSelection from './role-selection';
-import BlackTheme from './themes/black-theme';
-import BlueTheme from './themes/blue-theme';
-import GreenTheme from './themes/green-theme';
-import PurpuleTheme from './themes/purple-theme';
-import { MuiThemeProvider } from 'material-ui/styles';
-import { ROLES_NAMES, ROLES } from './global';
+import RoleSelection from '../role-selection';
+import BlackTheme from '../themes/black-theme';
+import BlueTheme from '../themes/blue-theme';
+import GreenTheme from '../themes/green-theme';
+import PurpuleTheme from '../themes/purple-theme';
+import { ROLES_NAMES, ROLES } from '../global';
 
 const useStyles = makeStyles((theme) => ({
   background: {

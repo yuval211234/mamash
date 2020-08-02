@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import BoxList from '../../box-list';
-import { getAllPlugot, resetAllTeams } from '../../api';
+import { getAllPlugot, resetAllTeams } from '../../api/api';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory, Switch, Route, useRouteMatch } from 'react-router-dom';
-import { getAllSoldiers } from '../../api';
+import { getAllSoldiers } from '../../api/api';
 import { TextField, Paper, Button } from '@material-ui/core';
 import MazevaTitle from '../../mazeva-title';
 import MazevaColumn from './mazeva-column';

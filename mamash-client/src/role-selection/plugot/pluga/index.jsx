@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BoxList from '../../../box-list';
 import Team from './team/index';
-import { getAllTeamsInPluga } from '../../../api';
+import { getAllTeamsInPluga } from '../../../api/api';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useParams, Switch, Route, useRouteMatch, useHistory } from 'react-router-dom';

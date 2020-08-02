@@ -135,12 +135,6 @@ let getSoldiers = () => {
                 isHere: false
             },
             {
-                id:'24',
-                name: 'רויאל כהן',
-                teamId: '5',
-                isHere: false
-            },
-            {
                 id:'25',
                 name: 'הדס יהוד',
                 teamId: '5',

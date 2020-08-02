@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LineList from '../../../../line-list';
-import { getAllSoldiersInTeam, changeSoldierStatus, resetTeamIsHere } from '../../../../api';
+import { getAllSoldiersInTeam, changeSoldierStatus, resetTeamIsHere } from '../../../../api/api';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, useTheme } from '@material-ui/core';
