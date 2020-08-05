@@ -33,7 +33,9 @@ const Pluga = () => {
     const [teams, setTeams] = useState([]);
 
     useEffect(() => {
-        setTeams(getAllTeamsInPluga(plugaId));
+        getAllTeamsInPluga(plugaId).then(teams => {
+            setTeams(teams)
+        })
     }, [])
 
     const onClick = (team) => {

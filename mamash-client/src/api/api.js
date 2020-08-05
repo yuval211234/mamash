@@ -1,31 +1,13 @@
 const serverUrl = 'http://localhost';
 
-const getAllPlugot = () => {
-    return [{
-        id: 'בנטל',
-        name: 'בנטל'
-    }];
+const getAllPlugot = async () => {
+    const plugot = await (await fetch(`${serverUrl}/plugot`)).json();
+    return plugot;
 }
 
-const getAllTeamsInPluga = () => {
-    return [
-        {
-            id: '5',
-            name: 'צוות 5'
-        },
-        {
-            id: '6',
-            name: 'צוות 6'
-        },
-        {
-            id: '7',
-            name: 'צוות 7'
-        },
-        {
-            id: '8',
-            name: 'צוות 8'
-        },
-    ];
+const getAllTeamsInPluga = async (plugaId) => {
+    const teams = await (await fetch(`${serverUrl}/teams/${plugaId}`)).json();
+    return teams;
 }
 
 const getAllSoldiersInTeam = async (teamId) => {

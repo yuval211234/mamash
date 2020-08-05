@@ -1,0 +1,27 @@
+image: node:latest
+
+cache:
+  paths:
+    - mamash-server/node_modules/
+    - mamash-client/node_modules/
+
+build:
+  script:
+    - cd mamash-client
+    - npm install
+    - npm run-script build
+    - cd ..
+    - cp -avr mamash-client/build mamash-server/build
+
+install:
+  script:
+    - cd mamash-server
+    - npm install
+
+start:
+  script:
+    - cd mamash-server
+    - npm start
+
+only:
+  - master

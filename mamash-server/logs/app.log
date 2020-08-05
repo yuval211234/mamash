@@ -351,3 +351,23 @@
 {"message":{"id":"22","name":"מרוה קוראין","teamId":"5","isHere":false,"status":"here","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
 {"message":{"id":"1","name":"יובל פורמן אסא","teamId":"6","isHere":false,"status":"here","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
 {"message":{"id":"2","name":"דניאל טופליאן","teamId":"6","isHere":false,"status":"missing","reason":"מטבח","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"6","isHere":false,"status":"here","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"6","isHere":false,"status":"missing","reason":"מטבח","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"6","isHere":false,"status":"here","reason":"","prevStatus":"missing","action":"statusChange"},"level":"info"}
+{"message":{"id":"2","name":"דניאל טופליאן","teamId":"6","isHere":false,"status":"missing","reason":"מטבח","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"here","action":"statusChange"},"level":"info"}
+{"message":{"id":"2","name":"דניאל טופליאן","teamId":"6","isHere":false,"status":"undefined","reason":"מטבח","prevStatus":"missing","action":"statusChange"},"level":"info"}
+{"message":{"id":"3","name":"יאיר כהן","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"4","name":"טל אלמסי","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"5","name":"עמר אגא","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"6","name":"פלי מגיד","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"7","name":"אביטל גוטמן","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"8","name":"נטע חזי","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"9","name":"אלון כרמלי","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"10","name":"מעין לזר","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"11","name":"עמית יצחקי","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"12","name":"ניצן נדיר","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"13","name":"מעין גפן","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"14","name":"לירז אסמרה","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"15","name":"רוני שהינו","teamId":"6","isHere":false,"status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"teamId":"6","action":"resetStatusForTeam"},"level":"info"}

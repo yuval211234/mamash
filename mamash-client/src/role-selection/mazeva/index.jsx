@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BoxList from '../../box-list';
-import { getAllPlugot, resetAllTeams } from '../../api/api';
+import { getAllPlugot, resetAllTeams, getAllTeamsInPluga } from '../../api/api';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory, Switch, Route, useRouteMatch } from 'react-router-dom';
@@ -10,6 +10,7 @@ import MazevaTitle from '../../mazeva-title';
 import MazevaColumn from './mazeva-column';
 import { SOLDIER_STATUS } from '../../global';
 import AcceptDeclineAlert from '../../accept-decline-alert';
+import MultiSelectBoxList from '../../multi-select-box-list';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         borderBottom: '2px solid',
         fontSize: '20px',
         marginTop: '50px',
-        marginBottom: '50px'
+        marginBottom: '20px'
     },
     column: {
         display: 'flex',
@@ -38,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#ff5722',
         color: 'white',
         marginTop: '20px'
+    },
+    multiSelect: {
+        width: '100%',
+        marginBottom: '30px'
     }
 }));
 
@@ -46,11 +51,20 @@ const Mazeva = () => {
     const [soldiers, setSoldiers] = useState([]);
     const classes = useStyles();
     const [isResetOpen, setIsResetOpen] = useState(false);
+    const [selectedTeams, setSelectedTeams] = useState([]);
+
 
     useEffect(() => {
         getAllSoldiers().then(newSoldiers => {
             setSoldiers(newSoldiers);
         });
+
+        getAllTeamsInPluga().then(teams => {
+            setSelectedTeams(teams.map(team => ({
+                ...team,
+                isOn: true
+            })));
+        })
 
         setInterval(() => {
             getAllSoldiers().then(newSoldiers => {
@@ -59,8 +73,9 @@ const Mazeva = () => {
         }, 5000);
     }, [])
 
-    const allPresentSoldiers = soldiers.filter(({ status }) => status === SOLDIER_STATUS.HERE);
-    const allNonPresentSoldiers = soldiers.filter(({ status }) => status !== SOLDIER_STATUS.HERE);
+    const selectedSoldier = soldiers.filter(soldier => selectedTeams.filter(selectedTeam => selectedTeam.isOn).map(selectedTeam => selectedTeam.id).includes(soldier.teamId))
+    const allPresentSoldiers = selectedSoldier.filter(({ status }) => status === SOLDIER_STATUS.HERE);
+    const allNonPresentSoldiers = selectedSoldier.filter(({ status }) => status !== SOLDIER_STATUS.HERE);
 
     const resetAllSoldiers = () => {
         resetAllTeams();
@@ -75,6 +90,21 @@ const Mazeva = () => {
         setIsResetOpen(true);
     }
 
+    const onSelectTeam = (teamToSwitch) => {
+        const newSelectedTeams = selectedTeams.map(team => {
+            if (team.id === teamToSwitch.id) {
+                return {
+                    ...team,
+                    isOn: !team.isOn
+                }
+            }
+
+            return team;
+        })
+
+        setSelectedTeams(newSelectedTeams);
+    }
+
     return (
         <>
             <div style={{ width: '80%', display: 'flex', flex: '1', flexDirection: 'column' }}>
@@ -83,6 +113,9 @@ const Mazeva = () => {
                         {`סמ"פ`}
                     </div>
                 </Typography>
+                <div className={classes.multiSelect}>
+                <MultiSelectBoxList list={selectedTeams} onClick={onSelectTeam} />
+                </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                         <MazevaColumn title={'מצ"ל'} string={soldiers.length} />

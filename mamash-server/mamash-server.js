@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const { getSoldiers } = require('./soldiers')
+const { getSoldiers, getTeams, getPlugot } = require('./soldiers')
 const path = require('path');
 const {SOLDIER_STATUS} = require('./globals');
 const fileLogger = require('./loggers/file-logger')
@@ -34,6 +34,17 @@ app.get('/soldiers/', (req, res) => {
     res.send(soldiers);
 }
 );
+
+app.get('/teams/:plugaId', (req, res) => {
+    res.send(getTeams());
+}
+);
+
+app.get('/plugot/', (req, res) => {
+    res.send(getPlugot());
+}
+);
+
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/index.html'))

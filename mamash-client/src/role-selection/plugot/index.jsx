@@ -35,7 +35,9 @@ const Plugot = () => {
     const match = useRouteMatch();
 
     useEffect(() => {
-        setPlugot(getAllPlugot());
+        getAllPlugot().then(plugot => {
+            setPlugot(plugot)
+        })
     }, [])
 
     const onClick = (pluga) => {
