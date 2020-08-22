@@ -11,11 +11,9 @@ const options = {
   },
 };
 
-const logger = winston.createLogger({
+export const logger = winston.createLogger({
   transports: [
     new winston.transports.File(options.file),
   ],
   exitOnError: false,
 });
-
-module.exports = logger;
