@@ -137,7 +137,9 @@ const Mazeva = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
                         {allNonPresentSoldiers.map(soldier => (
                             <Typography style={{}}>
-                                {`${soldier.name} - ${soldier.reason ? soldier.reason : 'אין סיבה'}`}
+                                {`${soldier.name} - 
+                                ${soldier.reason ? soldier.reason : 'אין סיבה'}
+                                 ${soldier.lastUpdate ? (" - " + soldier.lastUpdate) : ""}`}
                             </Typography>
                         ))}
                     </div>

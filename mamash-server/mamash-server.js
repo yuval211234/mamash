@@ -4,7 +4,8 @@ const cors = require('cors')
 const { getSoldiers, getTeams, getPlugot } = require('./soldiers')
 const path = require('path');
 const {SOLDIER_STATUS} = require('./globals');
-const fileLogger = require('./loggers/file-logger')
+const fileLogger = require('./loggers/file-logger');
+const moment = require('moment');
 const app = express()
 const port = 80
 
@@ -55,6 +56,7 @@ app.post('/changeStatus/:soldierId', (req, res) => {
         if (soldier.id === req.params.soldierId) {
             const newSoldier = soldier;
             newSoldier.reason = req.body.soldierReason;
+            newSoldier.lastUpdate = moment().format('LTS');
             changeSoldierStatus(newSoldier, req.body.soldierStatus);
             return newSoldier;
         }
