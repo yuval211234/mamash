@@ -114,7 +114,7 @@ const Mazeva = () => {
                     </div>
                 </Typography>
                 <div className={classes.multiSelect}>
-                <MultiSelectBoxList list={selectedTeams} onClick={onSelectTeam} />
+                    <MultiSelectBoxList list={selectedTeams} onClick={onSelectTeam} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
@@ -135,13 +135,18 @@ const Mazeva = () => {
                 <div>
                     <MazevaTitle title={'פירוט'} />
                     <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
-                        {allNonPresentSoldiers.map(soldier => (
-                            <Typography style={{}}>
-                                {`${soldier.name} - 
-                                ${soldier.reason ? soldier.reason : 'אין סיבה'}
-                                 ${soldier.lastUpdate ? (" - " + soldier.lastUpdate) : ""}`}
-                            </Typography>
-                        ))}
+                        {allNonPresentSoldiers.map(soldier => {
+                            const hasReason = !!soldier.reason;
+                            const hasTime = !!soldier.lastUpdate;
+                            const textColor = !soldier.reason ? "red" : "black";
+                            return (
+                                <Typography style={{ color: textColor }}>
+                                    {`${soldier.name} - 
+                                ${hasReason ? soldier.reason : 'אין סיבה'}
+                                 ${hasTime && (" - " + soldier.lastUpdate)}`}
+                                </Typography>
+                            )
+                        })}
                     </div>
                 </div>
                 <div>

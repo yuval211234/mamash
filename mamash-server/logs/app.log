@@ -395,3 +395,17 @@
 {"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"missing","reason":"גג","lastUpdate":"4:42:08 PM","prevStatus":"here","action":"statusChange"},"level":"info"}
 {"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"here","reason":"","lastUpdate":"4:42:38 PM","prevStatus":"missing","action":"statusChange"},"level":"info"}
 {"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"missing","reason":"ss","lastUpdate":"4:43:00 PM","prevStatus":"here","action":"statusChange"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"undefined","reason":"ss","lastUpdate":"4:43:00 PM","prevStatus":"missing","action":"statusChange"},"level":"info"}
+{"message":{"id":"2","name":"גרה","teamId":"2","status":"undefined","reason":"","lastUpdate":"4:39:23 PM","prevStatus":"here","action":"statusChange"},"level":"info"}
+{"message":{"id":"3","name":"בלה","teamId":"2","status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"action":"resetStatusForAllTeams"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"undefined","reason":"ss","lastUpdate":"4:43:00 PM","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"2","name":"גרה","teamId":"2","status":"undefined","reason":"","lastUpdate":"4:39:23 PM","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"3","name":"בלה","teamId":"2","status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"action":"resetStatusForAllTeams"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"here","reason":"","lastUpdate":"4:52:06 PM","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"missing","reason":"שגד","lastUpdate":"4:52:23 PM","prevStatus":"here","action":"statusChange"},"level":"info"}
+{"message":{"id":"1","name":"יובל פורמן אסא","teamId":"1","status":"undefined","reason":"שגד","lastUpdate":"4:52:23 PM","prevStatus":"missing","action":"statusChange"},"level":"info"}
+{"message":{"id":"2","name":"גרה","teamId":"2","status":"undefined","reason":"","lastUpdate":"4:39:23 PM","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"id":"3","name":"בלה","teamId":"2","status":"undefined","reason":"","prevStatus":"undefined","action":"statusChange"},"level":"info"}
+{"message":{"action":"resetStatusForAllTeams"},"level":"info"}
