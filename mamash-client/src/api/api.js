@@ -21,7 +21,7 @@ const getAllSoldiers = async () => {
 }
 
 const changeSoldierStatus = async (soldierId, soldierStatus, soldierReason) => {
-    return await fetch(`${serverUrl}/changeStatus/${soldierId}`, {
+    await fetch(`${serverUrl}/changeStatus/${soldierId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
