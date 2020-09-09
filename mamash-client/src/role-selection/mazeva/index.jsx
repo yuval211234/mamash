@@ -143,7 +143,10 @@ const Mazeva = () => {
                                 <Typography style={{ color: textColor }}>
                                     {`${soldier.name} - 
                                 ${hasReason ? soldier.reason : 'אין סיבה'}
-                                 ${hasTime && (" - " + soldier.lastUpdate)}`}
+                                 ${hasTime ? (" - " + soldier.lastUpdate) : ""}
+                                - צוות ${soldier.teamId}
+                                 `}
+
                                 </Typography>
                             )
                         })}
